@@ -90,7 +90,7 @@ try:
 except ImportError:
     # Python 2
     from urllib import quote,unquote
-from collections import Iterator
+from collections.abc import Iterator
 from bcftbx.TabFile import TabFile
 from bcftbx.TabFile import TabDataLine
 
@@ -488,7 +488,7 @@ class GFFIterator(Iterator):
             self.__fp = fp
             self.__close_fp = False
         else:
-            self.__fp = open(gff_file,'rU')
+            self.__fp = open(gff_file,'r')
             self.__close_fp = True
         self.__gffdataline = gffdataline
         self.__lineno = 0
